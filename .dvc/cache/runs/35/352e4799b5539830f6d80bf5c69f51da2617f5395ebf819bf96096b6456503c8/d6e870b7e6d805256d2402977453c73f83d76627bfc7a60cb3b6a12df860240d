@@ -1,0 +1,19 @@
+cmd: venv/bin/python src/models/grid_search.py
+deps:
+- path: data/processed_data/X_train_scaled.csv
+  hash: md5
+  md5: c1b80eb7f083888b625dd0369cf381f8
+  size: 227497
+- path: data/processed_data/y_train.csv
+  hash: md5
+  md5: a9cd9d91da89f732843d72548f64ded3
+  size: 25951
+- path: src/models/grid_search.py
+  hash: md5
+  md5: ad80be3b144a546387ae51ece84109db
+  size: 1174
+outs:
+- path: models/best_params.pkl
+  hash: md5
+  md5: 1a75a9977819571485896edf4c835e77
+  size: 93

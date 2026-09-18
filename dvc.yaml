@@ -1,0 +1,55 @@
+stages:
+  normalize:
+    cmd: venv/bin/python src/data/normalize_data.py
+    deps:
+    - data/processed_data/X_test.csv
+    - data/processed_data/X_train.csv
+    - src/data/normalize_data.py
+    outs:
+    - data/processed_data/X_test_scaled.csv
+    - data/processed_data/X_train_scaled.csv
+    - models/scaler.pkl
+  grid_search:
+    cmd: venv/bin/python src/models/grid_search.py
+    deps:
+    - data/processed_data/X_train_scaled.csv
+    - data/processed_data/y_train.csv
+    - src/models/grid_search.py
+    outs:
+    - models/best_params.pkl
+    params:
+    - grid_search
+  train:
+    cmd: venv/bin/python src/models/train_model.py
+    deps:
+    - data/processed_data/X_train_scaled.csv
+    - data/processed_data/y_train.csv
+    - models/best_params.pkl
+    - src/models/train_model.py
+    outs:
+    - models/gradient_boosting_model.pkl
+  evaluate:
+    cmd: venv/bin/python src/models/evaluate_model.py
+    deps:
+    - data/processed_data/X_test_scaled.csv
+    - data/processed_data/y_test.csv
+    - models/gradient_boosting_model.pkl
+    - src/models/evaluate_model.py
+    outs:
+    - data/processed_data/predictions.csv
+    metrics:
+    - metrics/scores.json:
+        cache: false
+  split:
+    cmd: venv/bin/python src/data/split_data.py
+    deps:
+    - data/raw_data/raw.csv
+    - src/data/split_data.py
+    outs:
+    - data/processed_data/X_test.csv
+    - data/processed_data/X_train.csv
+    - data/processed_data/y_test.csv
+    - data/processed_data/y_train.csv
+    params:
+    - split.random_state
+    - split.test_size

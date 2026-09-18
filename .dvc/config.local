@@ -1,0 +1,7 @@
+['remote "origin"']
+    access_key_id = f88a693835200b935ebec14045c45731b9e4f6b0
+    secret_access_key = f88a693835200b935ebec14045c45731b9e4f6b0
+['remote "dagshub"']
+    auth = basic
+    user = f88a693835200b935ebec14045c45731b9e4f6b0
+    password = f88a693835200b935ebec14045c45731b9e4f6b0

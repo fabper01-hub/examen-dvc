@@ -1,0 +1,27 @@
+cmd: venv/bin/python src/models/evaluate_model.py
+deps:
+- path: data/processed_data/X_test_scaled.csv
+  hash: md5
+  md5: 5e079189af6bd091d651a89fafb1c290
+  size: 57026
+- path: data/processed_data/y_test.csv
+  hash: md5
+  md5: a051d29629c8bbb4cfb7e85c7f0315da
+  size: 6456
+- path: models/gradient_boosting_model.pkl
+  hash: md5
+  md5: ccf36ac27a6b7cd7f09182b6a466c5e7
+  size: 139080
+- path: src/models/evaluate_model.py
+  hash: md5
+  md5: 04ba0659cec88742cc73f05d5f0d44b4
+  size: 1351
+outs:
+- path: data/processed_data/predictions.csv
+  hash: md5
+  md5: eda45dcb09f39e197212f835ac2fa7f3
+  size: 13221
+- path: metrics/scores.json
+  hash: md5
+  md5: 1a0827bc942c510291811d2b6c431626
+  size: 119
