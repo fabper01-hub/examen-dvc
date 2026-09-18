@@ -1,8 +1,8 @@
 [core]
     no_scm = True
-    remote = dagshub
+    remote = origin
 ['remote "dagshub"']
     url = https://dagshub.com/fabper01-hub/examen-dvc.dvc
 ['remote "origin"']
     url = s3://dvc
-    endpointurl = https://dagshub.com/fabper01/examen-dvc.s
+    endpointurl = https://dagshub.com/fabper01/examen-dvc.s3
